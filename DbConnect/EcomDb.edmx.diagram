@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b28e0948d29640829baa995aa6417df4" Name="Diagram1">
+        <EntityTypeShape EntityType="EcomModel.Cart" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcomModel.Category" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcomModel.ImageTable" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcomModel.Product" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="EcomModel.Registration" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="EcomModel.FK__Cart__ProductID__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="EcomModel.FK__Cart__UserID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="EcomModel.FK__Products__Catego__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="EcomModel.FK__ImageTabl__Produ__173876EA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

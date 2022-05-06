@@ -1,0 +1,147 @@
+﻿@model IEnumerable<OnlineSiteModel.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Images/slide1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Images/slide2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Images/slide3.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container-fluid p-3">
+    <div class="row">
+        <div class="col-sm-3">
+            <button class="btn btn-primary filterBtn mr-5" data-bs-toggle="collapse" href="#filterBar" role="button" aria-expanded="false" aria-controls="filterCollapse">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+                    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                <span class="fs-4 fw-bold">filter</span>
+            </button>
+        </div>
+        <form class="col-sm-5 form-group-sm mt-2" role="form">
+            <div class="input-group">
+                <input class="form-control p-2 w-50 " type="text" />
+                <button type="submit" class="btn-sm btn-success">search</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 filterBar text-center p-3" id="filterBar">
+            <form action="" method="post" role="form" class="form-horizontal">
+                <div class="form-group-sm mb-3">
+                    <label for="pname" class="control-label">Product Name</label>
+                    <input type="text" class="form-control w-75 mx-auto" placeholder="Exa: MI lite" id="pname" name="pname" />
+                </div>
+                <div class="form-group-sm mb-3">
+                    <label for="pname" class="control-label">Select Category</label>
+                    <select class="form-select form-select-lg mb-3 w-75 mx-auto" aria-label=".form-select-lg example" name="category" id="category">
+                        @foreach (var cat in ViewBag.CategoryList)
+                        {
+                            <option selected>@cat.CategoryName.ToString()</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group-sm mb-3">
+                    <label for="priceRange" class="control-label">Price range</label>
+                    <input type="range" class="form-range w-75 mx-auto" placeholder="Exa: MI lite" id="priceRange" name="priceRange" value="1" min="1" max="10000" oninput="this.nextElementSibling.value = this.value" />
+                    <output>1</output>
+                </div>
+                <div class="form-group-sm mb-3">
+                    <input type="checkbox" class="form-checkbox" />
+                    <label for="priceRange" class="control-label">Availability check!</label>
+                </div>
+                <button type="submit" class="btn btn-success">Apply</button>
+            </form>
+            <hr />
+            <p class="h5">Our latest coupons</p>
+            <p>summer offer:</p>
+            <div class="well w-75 mx-auto h2">SUMMER2022</div>
+            <p>Frist 5 purchase?</p>
+            <div class="well w-75 mx-auto h2">FIRST5</div>
+            <hr />
+            <form class="form-horizontal" role="form" method="post" action="">
+                <p>Your comments are appreciated..</p>
+                <textarea class="form-control w-75 mx-auto" rows="4"></textarea>
+                <button type="submit" class="btn-sm btn-success border-1" data-toggle="modal" data-target=".thanksSay">Comment</button>
+                <div class="modal fade thanksSay" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            Thanks for commenting!!
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr />
+            <div class="h3">Contact details</div>
+            <address class="address border-1" id="contactUs">
+                #675 Vidyashri building
+                Near to nice road
+                Banglore,588009
+                Karnataka
+            </address>
+        </div>
+        <div class="col-sm-9 px-2">
+            @{
+                var urls = ViewBag.urls;
+                var prod = ViewBag.ProdList;
+                for (int i = 0; i < prod.Count; i++)
+                {
+
+                    <div class="media p-2 m-2 p-2 shadow-lg">
+                        @{
+                            var path = "/Home/ProdDetail?Prodid=" + prod[i].ProductID.ToString();
+                        }
+                        <div class="media-left"><a href=@path><img src=@urls[i] alt=@prod[i].productName id="ProdImg" /></a></div>
+
+                        <div class="media-body">
+                            <h4 id="ProdName">@prod[i].productName</h4>
+                            <span class="badge bg-primary">Ratings</span><span>
+                                <img src="~/Images/star-fill.svg" />
+                                <img src="~/Images/star-fill.svg" />
+                                <img src="~/Images/star-fill.svg" />
+                                <img src="~/Images/star-half.svg" />
+                                <img src="~/Images/star.svg" />
+                            </span>
+                            <h5>Price: <span class="h5">@prod[i].price</span></h5>
+                            <span id="heartIcon">
+                                <img src="~/Images/heart.svg" />
+                            </span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="/Home/index?PageId=0"><span class="badge">1</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/index?PageId=1"><span class="badge">2</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/index?PageId=2"><span class="badge">3</span></a>
+            </li>
+        </ul>
+    </div>
+   
+</div>
+

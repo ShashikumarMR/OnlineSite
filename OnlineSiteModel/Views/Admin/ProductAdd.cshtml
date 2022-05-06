@@ -1,0 +1,73 @@
+﻿
+
+@{
+    ViewBag.Title = "admin";
+}
+@if (ViewBag.status != null)
+{
+    if (Convert.ToBoolean(TempData["status"]))
+    {
+        <div class="alert alert-success pt-0 w-100 text-center alertHeightModify" role="alert">
+            Successfully removed from cart!
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger pt-0 w-100 text-center alertHeightModify" role="alert">
+            oops!could not remove.
+        </div>
+    }
+}
+
+
+<h3>Product Add</h3>
+<form class="form-horizontal col-4  p-3 mx-auto" method="post" action="">
+    <div class="form-group">
+        <label class="control-label" for="pname">
+            product name
+        </label>
+        <input type="text" class="form-control" name="pname" id="pname" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="price">
+            price
+        </label>
+        <input type="text" class="form-control" name="price" id="price" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="Category">
+            Category
+        </label>
+        <select class="custom-select" name="Category">
+            <option selected>Select</option>
+            @foreach (var c in ViewBag.Category)
+            {
+                <option value=@c.CategoryId>@c.CategoryName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="weight">
+            weight
+        </label>
+        <input type="text" class="form-control" name="weight" id="weight" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="stock">
+            stock
+        </label>
+        <input type="text" class="form-control" name="stock" id="stock" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="desc">
+            Description
+        </label>
+        <input type="text" class="form-control" name="desc" id="desc" required />
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="imgFile">
+        </label>
+        <input type="file" class="form-control" name="imgFile" id="imgFile" required />
+    </div>
+    <button type="submit" class="btn btn-primary mx-auto text-center">Add</button>
+</form>

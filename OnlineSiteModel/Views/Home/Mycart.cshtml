@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Mycart";
+}
+
+@if (TempData["status"] != null)
+{
+    if (Convert.ToBoolean(TempData["status"]))
+    {
+        <div class="alert alert-success pt-0 w-100 text-center alertHeightModify" role="alert">
+            Successfully removed from cart!
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger pt-0 w-100 text-center alertHeightModify" role="alert">
+            oops!could not remove.
+        </div>
+    }
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            @{
+                var urls = ViewBag.urls;
+                var prod = ViewBag.ProdList;
+                if (urls != null && prod != null)
+                {
+                    for (int i = 0; i < prod.Count; i++)
+                    {
+
+                        <div class="media p-2 m-2 p-2 shadow-lg">
+                            @{
+                                var path = "/Home/ProdDetail?Prodid=" + prod[i].ProductID;
+                            }
+                            <div class="media-left"><a href=@path><img src=@urls[i] alt=@prod[i].productName id="ProdImg" /></a></div>
+
+                            <div class="media-body">
+                                <h4 id="ProdName">@prod[i].productName</h4>
+                                <span class="badge bg-primary">Ratings</span><span>
+                                    <img src="~/Images/star-fill.svg" />
+                                    <img src="~/Images/star-fill.svg" />
+                                    <img src="~/Images/star-fill.svg" />
+                                    <img src="~/Images/star-half.svg" />
+                                    <img src="~/Images/star.svg" />
+                                </span>
+                                <h5>Price: <span class="h5">@prod[i].price</span></h5>
+                                @{
+                                    var Cartpath = "/Home/RemoveMyCart?id=" + prod[i].ProductID.ToString();
+                                }
+
+                                <button class="btn btn-danger w-25 m-2 p-2"><a href=@Cartpath class="btnText text-white">Remove</a></button>
+                                <span id="heartIcon">
+                                    <img src="~/Images/heart.svg" />
+                                </span>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+

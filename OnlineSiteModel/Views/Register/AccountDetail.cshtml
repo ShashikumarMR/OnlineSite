@@ -1,0 +1,24 @@
+﻿@{
+    var details = ViewBag.reg;
+ }
+
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col-9 col-lg-4 col-md-5 col-sm-8 mx-auto shadow-lg my-5 justify-content-center">
+            <form class="m-5" action="/AddUser/NewAccount" method="post">
+                @Html.AntiForgeryToken()
+                <h3>Account Detail</h3>
+                <hr />
+                <div class="form-group">
+                    <label>Name : @details.UserName</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" />
+                        <span class="input-group-addon p-0"><button class="btn btn-primary">Edit Name</button></span>
+                    </div>
+                </div>
+            </form>
+            <p class="text-danger">@ViewBag.FailedRegister</p>
+        </div>
+    </div>
+</div>
+

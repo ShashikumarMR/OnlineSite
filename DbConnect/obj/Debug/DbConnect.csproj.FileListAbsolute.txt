@@ -1,0 +1,11 @@
+I:\OnlineSiteModel\DbConnect\bin\Debug\DbConnect.dll.config
+I:\OnlineSiteModel\DbConnect\bin\Debug\DbConnect.dll
+I:\OnlineSiteModel\DbConnect\bin\Debug\DbConnect.pdb
+I:\OnlineSiteModel\DbConnect\bin\Debug\EntityFramework.dll
+I:\OnlineSiteModel\DbConnect\bin\Debug\EntityFramework.SqlServer.dll
+I:\OnlineSiteModel\DbConnect\bin\Debug\EntityFramework.xml
+I:\OnlineSiteModel\DbConnect\bin\Debug\EntityFramework.SqlServer.xml
+I:\OnlineSiteModel\DbConnect\obj\Debug\DbConnect.csproj.CoreCompileInputs.cache
+I:\OnlineSiteModel\DbConnect\obj\Debug\DbConnect.csproj.CopyComplete
+I:\OnlineSiteModel\DbConnect\obj\Debug\DbConnect.dll
+I:\OnlineSiteModel\DbConnect\obj\Debug\DbConnect.pdb

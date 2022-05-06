@@ -1,0 +1,82 @@
+﻿*, .container-fluid {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.carousel-inner .carousel-item {
+    height: 300px;
+}
+
+#cartIcon {
+    width: 1.5em;
+    height: 1.5em;
+}
+#brandName {
+    text-decoration: none;
+    font-family: 'Oleo Script', cursive;
+    font-size:1.2em;
+    color:white;
+}
+    #brandName span {
+        font-size: 1.5em;
+    }
+
+    .carousel-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 30%;
+    }
+.Profile {
+   position:absolute;
+   right:20px;
+   top:0;
+}
+#loginOpt {
+    text-decoration: none;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+@media only screen and (max-width:588px) {
+    .Profile{
+        position:absolute;
+        top:-90px;
+    }
+}
+
+#heartIcon{
+    position: absolute;
+    right: 35px;
+
+}
+#profileIcon {
+    width: 3.5em;
+    height: 3.5em;
+}
+
+#logo {
+    width: 3em;
+    height: 3em;
+}
+
+
+.filterBar {
+  background-color:#f1f1f1;
+}
+
+output {
+display:inline-block;
+}
+
+#ProdName {
+    font-family: 'PT Sans', sans-serif;
+}
+
+#ProdImg{
+    width:8em;
+    height:8em;
+}
+
+.alertHeightModify {
+ height:2em;
+}
